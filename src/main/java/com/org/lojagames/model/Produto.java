@@ -6,6 +6,7 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
+
 import lombok.*;
 
 @Entity
@@ -38,6 +39,12 @@ public class Produto {
     @JsonIgnoreProperties("produto")
     @Getter @Setter
     private Categoria categoria;
+
+    @ManyToOne
+    @JsonIgnoreProperties("produto")
+    @Getter @Setter
+    private Usuario usuario;
+
 
     public Produto(Long id, String descricao, double preco, int quantidade, String foto) {
         this.id = id;
